@@ -1,7 +1,5 @@
 import React from 'react';
 // import { fetchEthereumAddressNfts } from '@/lib/fetchEthereumAddressNfts';
-// import logo from './logo.svg';
-// import './App.css';
 
 function App() {
     return (
