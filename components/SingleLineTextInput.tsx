@@ -19,7 +19,6 @@ const SingleLineTextInput = ({
     id,
     disabled = false,
 }: ISingleLineTextInput): JSX.Element => {
-
     return (
         <input
             type={type}

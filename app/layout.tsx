@@ -8,9 +8,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className='font-baloo bg-primary'>
-                {children}
-            </body>
+            <body className="font-baloo bg-primary">{children}</body>
         </html>
     );
 }

@@ -6,12 +6,7 @@ interface IWhiteButton {
     isDisabled?: boolean;
 }
 
-const WhiteButton = ({
-    text,
-    onClick,
-    isDisabled = false,
-}: IWhiteButton) => {
-
+const WhiteButton = ({ text, onClick, isDisabled = false }: IWhiteButton) => {
     return (
         <button
             className={`flex w-full justify-center items-center duration-150 text-black border-[#979797] border-2 ${
