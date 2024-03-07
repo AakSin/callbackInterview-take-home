@@ -1,5 +1,6 @@
 import React from 'react';
 import GreyedCard from '@/components/GreyedCard';
+import Image from 'next/image';
 // import { fetchEthereumAddressNfts } from '@/lib/fetchEthereumAddressNfts';
 
 function App() {
@@ -30,6 +31,29 @@ function App() {
         'An overview of the project.',
         'Instructions on how to set up and run your application.',
         'A brief explanation of any special features or considerations.',
+    ]
+
+    const imageLinks = [
+        {
+            link: '/images/screenshots/Mobile1.png',
+            width: 300, 
+            height: 300,
+        },
+        {
+            link: '/images/screenshots/Web1.png',
+            width: 600, 
+            height: 300,
+        },
+        {
+            link: '/images/screenshots/Web2.png',
+            width: 600, 
+            height: 300,
+        },
+        {
+            link: '/images/screenshots/Web3.png',
+            width: 600, 
+            height: 300,
+        },
     ]
 
     return (
@@ -92,6 +116,31 @@ function App() {
                     }
                 </GreyedCard>
 
+                <GreyedCard classes='my-4'>
+                    <h2 className="text-2xl">
+                        Callback UI Examples
+                    </h2>
+                    <p className="text-xl">
+                        Use the following screenshots of our web and mobile app UI as a guide.
+                        <br />
+                        Your solution doesn't have to be exact to this styling, but should follow the same general themes.
+                    </p>
+                    <div className="flex gap-12 flex-wrap items-center justify-center my-4">
+                        {
+                            imageLinks.map((link, idx)=>(
+                                <div key={idx}>
+                                    <Image src={link.link} alt={link.link} width={link.width} height={link.height}/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    
+                </GreyedCard>
+                
+
+                <p className="text-2xl my-6">
+                    Please let us know if you have any questions. We're excited to see your submission. Good luck!
+                </p>
             </div>
         </div>
     );
