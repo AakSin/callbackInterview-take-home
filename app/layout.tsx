@@ -1,9 +1,16 @@
 import React from 'react';
+import './globals.css';
 
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    return <main>{children}</main>;
+    return (
+        <html lang="en">
+            <body className='font-baloo bg-primary'>
+                {children}
+            </body>
+        </html>
+    );
 }
