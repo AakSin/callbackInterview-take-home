@@ -10,12 +10,16 @@ function App() {
         "Displaying NFTs: Present the NFTs in a responsive grid layout. Each item in the grid should display the NFT's image and name.",
         'Error Handling: Implement error handling for the API request, including displaying a user-friendly message if no NFTs are found or if the Ethereum address is invalid.',
         "Styling and Responsiveness: The application should be styled in a clean and accessible manner, as well as being responsive to the user's device.",
-        'Other Requirements',
+        'Other Requirements:',
+    ];
+
+    const requirementSubList = [
         "Display a maximum of 50 of the address's NFTs.",
         'Only display NFTs that have a media trait as a static image (no GIFs or videos).',
         'Fonts and some styling components have been provided. Use these as you see fit.',
         'constants.ts has our Simplehash test API key and some Ethereum addresses you can use for testing.',
         "Adhere to the TypeScript, ESLint, and Prettier configurations we've already set up in the repo.",
+        'No need to style this for mobile.',
     ];
 
     const evalCriteria = [
@@ -24,13 +28,6 @@ function App() {
         'Error Handling: The application gracefully handles and displays errors.',
         "UI/UX Design: The application feels close to our web and mobile's apps design, and is user-friendly with a responsive design that provides a good experience across devices.",
         'Creativity: Any additional features or creative solutions that enhance the user experience.',
-    ];
-
-    const submissionInstructions = [
-        'Please share your GitHub repository containing your project with daniel@callback.xyz. Include a README file with:',
-        'An overview of the project.',
-        'Instructions on how to set up and run your application.',
-        'A brief explanation of any special features or considerations.',
     ];
 
     const imageLinks = [
@@ -85,29 +82,38 @@ function App() {
 
                 <GreyedCard classes="my-4">
                     <h2 className="text-2xl">Requirements:</h2>
-                    {requirementList.map((reqText, idx) => (
-                        <p className="my-1" key={idx}>
-                            {reqText}
-                        </p>
-                    ))}
+                    <ul style={{ listStyleType: 'disc' }}>
+                        {requirementList.map((criteria, idx) => (
+                            <li key={idx}>{criteria}</li>
+                        ))}
+                    </ul>
+                    <ul style={{ listStyleType: 'circle', paddingLeft: 25 }}>
+                        {requirementSubList.map((criteria, idx) => (
+                            <li key={idx}>{criteria}</li>
+                        ))}
+                    </ul>
                 </GreyedCard>
 
                 <GreyedCard classes="my-4">
                     <h2 className="text-2xl">Evaluation Criteria:</h2>
-                    {evalCriteria.map((criteria, idx) => (
-                        <p className="my-1" key={idx}>
-                            {criteria}
-                        </p>
-                    ))}
+                    <ul style={{ listStyleType: 'disc' }}>
+                        {evalCriteria.map((criteria, idx) => (
+                            <li key={idx}>{criteria}</li>
+                        ))}
+                    </ul>
                 </GreyedCard>
 
                 <GreyedCard classes="my-4">
                     <h2 className="text-2xl">Submission Instructions:</h2>
-                    {submissionInstructions.map((instruction, idx) => (
-                        <p className="my-1" key={idx}>
-                            {instruction}
-                        </p>
-                    ))}
+                    <p className="text-xl">
+                        Please fork and share your GitHub repository containing
+                        your project with daniel@callback.xyz.
+                        <br />
+                        Include a README file with an overview of the project,
+                        instructions on how to set up and run your application,
+                        a brief explanation of any special features or
+                        considerations.
+                    </p>
                 </GreyedCard>
 
                 <GreyedCard classes="my-4">
