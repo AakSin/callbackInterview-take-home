@@ -1,7 +1,6 @@
 import React from 'react';
 import GreyedCard from '@/components/GreyedCard';
 import Image from 'next/image';
-// import { fetchEthereumAddressNfts } from '@/lib/fetchEthereumAddressNfts';
 
 function App() {
     const requirementList = [
