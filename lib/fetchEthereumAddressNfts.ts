@@ -4,8 +4,7 @@ const options = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        'X-API-KEY':
-            'nyu_sk_bb236117-abff-4052-8efc-f9a375b795d2_q0mhv1pi53njysk4',
+        'X-API-KEY': process.env.SIMPLEHASH_API_KEY,
     },
 };
 
