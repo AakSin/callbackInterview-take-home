@@ -10,6 +10,14 @@ const options = {
     },
 };
 
+interface NFT {
+    image_url?: string;
+    name: string;
+    nft_id: string;
+    contract_address: string;
+    token_id: string;
+}
+
 interface NFTMessage {
     message: string;
     status: number;
@@ -22,15 +30,15 @@ const fetchEthereumAddressNfts = async (address: string) => {
             `https://api.simplehash.com/api/v0/nfts/owners?chains=ethereum&wallet_addresses=${address}&limit=50`,
             options
         );
-        let responseMessage: NFTMessage = { status: 0, message: '' };
+        const responseMessage: NFTMessage = { status: 0, message: '' };
         responseMessage.status = data.status;
-        let nfts = await data.json();
+        const nfts = await data.json();
         responseMessage.message = nfts.message;
         responseMessage.nfts = nfts.nfts;
 
         return responseMessage;
     } else {
-        let responseMessage: NFTMessage = {
+        const responseMessage: NFTMessage = {
             status: 404,
             message: 'The given address is not an ethereum address.',
         };
@@ -39,3 +47,4 @@ const fetchEthereumAddressNfts = async (address: string) => {
 };
 
 export default fetchEthereumAddressNfts;
+export type { NFT, NFTMessage };
