@@ -18,20 +18,25 @@ const HoverDesc = (props: Props) => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
-    return (
-        <div
-            className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800"
-            style={{
-                left: `${mousePos.x + 10}px`,
-                top: `${mousePos.y + 10}px`,
-            }}
-        >
-            {/* quick fix to escape null state initally */}
-            {props.description == null || props.description.length < 100
-                ? props.description
-                : props.description.substring(0, 100) + '...'}
-        </div>
-    );
+
+    if (props.description == null) {
+        return <div></div>;
+    } else {
+        return (
+            <div
+                className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800"
+                style={{
+                    left: `${mousePos.x + 10}px`,
+                    top: `${mousePos.y + 10}px`,
+                }}
+            >
+                {/* quick fix to escape null state initally */}
+                {props.description.length < 100
+                    ? props.description
+                    : props.description.substring(0, 100) + '...'}
+            </div>
+        );
+    }
 };
 
 export default HoverDesc;
