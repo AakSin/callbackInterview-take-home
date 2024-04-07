@@ -1,7 +1,11 @@
 'use client';
 import React from 'react';
 import { useState, useEffect } from 'react';
-const HoverDesc = () => {
+
+interface Props {
+    description: string;
+}
+const HoverDesc = (props: Props) => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
@@ -16,13 +20,16 @@ const HoverDesc = () => {
     }, []);
     return (
         <div
-            className="absolute z-10"
+            className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800"
             style={{
                 left: `${mousePos.x + 10}px`,
                 top: `${mousePos.y + 10}px`,
             }}
         >
-            HoverDesc
+            {/* quick fix to escape null state initally */}
+            {props.description == null || props.description.length < 100
+                ? props.description
+                : props.description.substring(0, 100) + '...'}
         </div>
     );
 };

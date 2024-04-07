@@ -7,6 +7,7 @@ module.exports = {
     ],
     theme: {
         extend: {
+            display: ['group-hover'],
             colors: {
                 primary: '#181818',
                 secondary: '#3D3C3C',
@@ -31,6 +32,7 @@ module.exports = {
                 prototypeModalBg: '#505050',
             },
         },
+
         fontFamily: {
             baloo: ['BalooRegular', 'sans-serif'],
         },

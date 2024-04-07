@@ -4,17 +4,9 @@ const options = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        'X-API-KEY': process.env.SIMPLEHASH_API_KEY,
+        'X-API-KEY': `${process.env.SIMPLEHASH_API_KEY}`,
     },
 };
-
-interface NFT {
-    image_url?: string;
-    name: string;
-    nft_id: string;
-    contract_address: string;
-    token_id: string;
-}
 
 interface NFTMessage {
     message: string;
@@ -45,4 +37,4 @@ const fetchEthereumAddressNfts = async (address: string) => {
 };
 
 export default fetchEthereumAddressNfts;
-export type { NFT, NFTMessage };
+export type { NFTMessage };

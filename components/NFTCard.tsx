@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
-
+import HoverDesc from './HoverDesc';
 interface Props {
     imageUrl: string;
     name: string;
     contractAddress: string;
     tokenId: string;
+    description: string;
 }
 
 const NFTCard = (props: Props) => {
@@ -15,7 +16,8 @@ const NFTCard = (props: Props) => {
                 href={`https://opensea.io/assets/ethereum/${props.contractAddress}/${props.tokenId}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-col items-center justify-center m-4 p-4 text-center hover:bg-stone-800"
+                // group used for group-hover for HoverDesc
+                className="group flex flex-col items-center justify-center m-4 p-4 text-center hover:bg-stone-800"
             >
                 <Image
                     src={props.imageUrl}
@@ -27,6 +29,9 @@ const NFTCard = (props: Props) => {
                 ></Image>
 
                 <h2 className="text-wrap w-9/12">{props.name}</h2>
+                <div className="hidden group-hover:block">
+                    <HoverDesc description={props.description}></HoverDesc>
+                </div>
             </a>
         </div>
     );

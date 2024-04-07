@@ -2,8 +2,17 @@ import React from 'react';
 import fetchEthereumAddressNfts from '@/lib/fetchEthereumAddressNfts';
 import NFTCard from '@/components/NFTCard';
 import ErrorScreen from '@/components/ErrorScreen';
-import type { NFT, NFTMessage } from '@/lib//fetchEthereumAddressNfts';
+import type { NFTMessage } from '@/lib//fetchEthereumAddressNfts';
 // import HoverDesc from '@/components/HoverDesc';
+
+interface NFT {
+    image_url?: string;
+    name: string;
+    nft_id: string;
+    contract_address: string;
+    token_id: string;
+    description: string;
+}
 
 interface imageNFT extends NFT {
     image_url: string;
@@ -28,6 +37,7 @@ const page = async ({ params }: { params: { address: string } }) => {
                                 name={imageNft.name}
                                 contractAddress={imageNft.contract_address}
                                 tokenId={imageNft.token_id}
+                                description={imageNft.description}
                             ></NFTCard>
                         )
                         // console.log(image_url)
