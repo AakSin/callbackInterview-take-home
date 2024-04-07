@@ -1,5 +1,6 @@
 import React from 'react';
 import './globals.css';
+import SearchBar from '@/components/SearchBar';
 
 export default function RootLayout({
     children,
@@ -8,7 +9,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="font-baloo bg-primary">{children}</body>
+            <body className="font-baloo bg-primary">
+                <SearchBar></SearchBar>
+                {children}
+            </body>
         </html>
     );
 }
