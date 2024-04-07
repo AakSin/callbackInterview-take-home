@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="font-baloo bg-primary">
+            <body className="font-baloo bg-primary py-16 px-40">
                 <SearchBar></SearchBar>
                 {children}
             </body>

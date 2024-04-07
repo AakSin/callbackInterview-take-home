@@ -6,8 +6,8 @@ interface Props {
 
 const ErrorScreen = (props: Props) => {
     return (
-        <div>
-            <p>{props.errorMessage}</p>
+        <div className="flex items-center justify-center text-center">
+            <p className="text-2xl">{props.errorMessage}</p>
         </div>
     );
 };

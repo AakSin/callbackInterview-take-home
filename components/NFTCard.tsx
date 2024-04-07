@@ -10,20 +10,22 @@ interface Props {
 
 const NFTCard = (props: Props) => {
     return (
-        <div>
+        <div className="w-1/3">
             <a
                 href={`https://opensea.io/assets/ethereum/${props.contractAddress}/${props.tokenId}`}
                 target="_blank"
                 rel="noreferrer"
+                className="flex flex-col items-center justify-center m-4 text-center"
             >
                 <Image
                     src={props.imageUrl}
                     alt={props.name}
                     width={200}
                     height={200}
+                    className="rounded-3xl w-full object-cover h-fit mb-6"
                 ></Image>
 
-                <h1>{props.name}</h1>
+                <h2 className="text-wrap w-9/12">{props.name}</h2>
             </a>
         </div>
     );

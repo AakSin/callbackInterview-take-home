@@ -1,20 +1,27 @@
 'use client';
 
 import React from 'react';
-import { FormEvent } from 'react';
+
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
 
 const SearchBar = () => {
+    const params = useParams();
     const [address, setAddress] = useState('');
     return (
-        <div>
+        <div className="text-center mb-12">
             <input
+                className="rounded-full w-9/12 h-10 p-4 text-stone-950"
                 type="text"
                 name="name"
                 onChange={(event) => setAddress(event.target.value)}
+                value={params.address}
             ></input>
             <a href={`../${address}/gallery`}>
-                <button> Go</button>
+                <button className="rounded-full bg-blue-700 p-3 px-8 ml-4">
+                    {' '}
+                    Go!
+                </button>
             </a>
         </div>
     );
