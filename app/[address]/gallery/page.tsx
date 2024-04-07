@@ -2,46 +2,28 @@ import React from 'react';
 import fetchEthereumAddressNfts from '@/lib/fetchEthereumAddressNfts';
 import NFTCard from '@/components/NFTCard';
 import ErrorScreen from '@/components/ErrorScreen';
-import type { NFTMessage } from '@/lib//fetchEthereumAddressNfts';
-// import HoverDesc from '@/components/HoverDesc';
+import type { NFT, NFTMessage } from '@/lib//fetchEthereumAddressNfts';
 
-interface NFT {
-    image_url?: string;
-    name: string;
-    nft_id: string;
-    contract_address: string;
-    token_id: string;
-    description: string;
-}
-
-interface imageNFT extends NFT {
-    image_url: string;
-}
 const page = async ({ params }: { params: { address: string } }) => {
     const nfts: NFTMessage = await fetchEthereumAddressNfts(params.address);
 
     if (nfts.status == 200) {
-        const imageNfts = await nfts.nfts.filter(
-            (nft: NFT) => nft.image_url != null
-        );
+        const imageNfts = await nfts.nfts.filter((nft: NFT) => !!nft.image_url);
 
         if (imageNfts.length > 0) {
             return (
                 <div className="flex flex-wrap items-center justify-center">
                     {/* <HoverDesc></HoverDesc> */}
-                    {imageNfts.map(
-                        (imageNft: imageNFT) => (
-                            <NFTCard
-                                key={imageNft.nft_id}
-                                imageUrl={imageNft.image_url}
-                                name={imageNft.name}
-                                contractAddress={imageNft.contract_address}
-                                tokenId={imageNft.token_id}
-                                description={imageNft.description}
-                            ></NFTCard>
-                        )
-                        // console.log(image_url)
-                    )}
+                    {imageNfts.map((imageNft) => (
+                        <NFTCard
+                            key={imageNft.nft_id}
+                            imageUrl={imageNft.image_url}
+                            name={imageNft.name}
+                            contractAddress={imageNft.contract_address}
+                            tokenId={imageNft.token_id}
+                            description={imageNft.description}
+                        />
+                    ))}
                 </div>
             );
         } else {

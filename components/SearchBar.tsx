@@ -17,6 +17,7 @@ const SearchBar = () => {
                 name="name"
                 onChange={(event) => setAddress(event.target.value)}
                 value={address}
+                placeholder="Enter Your Address..."
             ></input>
             <a href={`../${address}/gallery`}>
                 <button className="rounded-full bg-blue-700 p-3 px-8 ml-4">
