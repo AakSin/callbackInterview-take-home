@@ -1,7 +1,6 @@
 import { isAddress } from 'web3-validator';
 
 const options = {
-    cache: 'no-store',
     method: 'GET',
     headers: {
         accept: 'application/json',
