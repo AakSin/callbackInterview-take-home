@@ -8,12 +8,12 @@ const page = async ({ params }: { params: { address: string } }) => {
     const nfts: NFTMessage = await fetchEthereumAddressNfts(params.address);
 
     if (nfts.status == 200) {
+        // filter out non-static image NFTS
         const imageNfts = await nfts.nfts.filter((nft: NFT) => !!nft.image_url);
 
         if (imageNfts.length > 0) {
             return (
                 <div className="flex flex-wrap items-center justify-center">
-                    {/* <HoverDesc></HoverDesc> */}
                     {imageNfts.map((imageNft) => (
                         <NFTCard
                             key={imageNft.nft_id}
@@ -28,13 +28,11 @@ const page = async ({ params }: { params: { address: string } }) => {
             );
         } else {
             return (
-                <ErrorScreen
-                    errorMessage={'This account has no image NFTS.'}
-                ></ErrorScreen>
+                <ErrorScreen errorMessage={'This account has no image NFTS.'} />
             );
         }
     } else {
-        return <ErrorScreen errorMessage={nfts.message}></ErrorScreen>;
+        return <ErrorScreen errorMessage={nfts.message} />;
     }
 };
 

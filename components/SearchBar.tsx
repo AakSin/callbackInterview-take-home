@@ -8,6 +8,7 @@ import { useParams } from 'next/navigation';
 const SearchBar = () => {
     const params = useParams();
 
+    // get initial value from current address
     const [address, setAddress] = useState(params.address);
     return (
         <div className="text-center mb-12">
@@ -21,7 +22,6 @@ const SearchBar = () => {
             ></input>
             <a href={`../${address}/gallery`}>
                 <button className="rounded-full bg-blue-700 p-3 px-8 ml-4">
-                    {' '}
                     Go!
                 </button>
             </a>

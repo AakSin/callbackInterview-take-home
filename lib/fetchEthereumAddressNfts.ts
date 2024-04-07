@@ -29,6 +29,8 @@ const fetchEthereumAddressNfts = async (address: string) => {
             `https://api.simplehash.com/api/v0/nfts/owners?chains=ethereum&wallet_addresses=${address}&limit=50`,
             options
         );
+
+        // empty response message to be populated from API
         const responseMessage: NFTMessage = {
             status: 0,
             message: '',
@@ -41,6 +43,7 @@ const fetchEthereumAddressNfts = async (address: string) => {
 
         return responseMessage;
     } else {
+        // custom response message upon failing Web3-Address-Validator
         const responseMessage: NFTMessage = {
             status: 404,
             message: 'The given address is not an ethereum address.',

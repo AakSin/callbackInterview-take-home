@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import HoverDesc from './HoverDesc';
+
 interface Props {
     imageUrl: string;
     name: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const NFTCard = (props: Props) => {
     return (
-        <div className="w-1/3">
+        <div className="w-1/2 lg:w-1/3">
             <a
                 href={`https://opensea.io/assets/ethereum/${props.contractAddress}/${props.tokenId}`}
                 target="_blank"
@@ -29,6 +30,7 @@ const NFTCard = (props: Props) => {
                 ></Image>
 
                 <h2 className="text-wrap w-9/12">{props.name}</h2>
+                {/* toggles between visibily when the whole group is hovered on */}
                 <div className="hidden group-hover:block">
                     <HoverDesc description={props.description}></HoverDesc>
                 </div>

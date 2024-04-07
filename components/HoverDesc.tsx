@@ -5,8 +5,11 @@ import { useState, useEffect } from 'react';
 interface Props {
     description: string;
 }
+
 const HoverDesc = (props: Props) => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+    // effect hook to get mouse position constantly
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
             setMousePos({ x: event.pageX, y: event.pageY });
@@ -24,6 +27,7 @@ const HoverDesc = (props: Props) => {
     } else {
         return (
             <div
+                // attach div to mousePos
                 className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800"
                 style={{
                     left: `${mousePos.x + 10}px`,
