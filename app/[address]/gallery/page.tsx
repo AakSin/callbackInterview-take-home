@@ -3,6 +3,7 @@ import fetchEthereumAddressNfts from '@/lib/fetchEthereumAddressNfts';
 import NFTCard from '@/components/NFTCard';
 import ErrorScreen from '@/components/ErrorScreen';
 import type { NFT, NFTMessage } from '@/lib//fetchEthereumAddressNfts';
+// import HoverDesc from '@/components/HoverDesc';
 
 interface imageNFT extends NFT {
     image_url: string;
@@ -18,6 +19,7 @@ const page = async ({ params }: { params: { address: string } }) => {
         if (imageNfts.length > 0) {
             return (
                 <div className="flex flex-wrap items-center justify-center">
+                    {/* <HoverDesc></HoverDesc> */}
                     {imageNfts.map(
                         (imageNft: imageNFT) => (
                             <NFTCard
