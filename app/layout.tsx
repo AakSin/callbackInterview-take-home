@@ -8,7 +8,7 @@ export const metadata = {
     title: 'Callback',
     description: 'Access NFTs for your addresss',
     icons: {
-        icon: '../public/favicon.ico',
+        icon: './favicon.ico',
     },
 };
 
