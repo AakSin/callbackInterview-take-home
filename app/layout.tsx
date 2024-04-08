@@ -4,6 +4,14 @@ import SearchBar from '@/components/SearchBar';
 import Image from 'next/image';
 import Logo from '../public/images/icons/callback-logo.png';
 
+export const metadata = {
+    title: 'Callback',
+    description: 'Access NFTs for your addresss',
+    icons: {
+        icon: '../public/favicon.ico',
+    },
+};
+
 export default function RootLayout({
     children,
 }: {
