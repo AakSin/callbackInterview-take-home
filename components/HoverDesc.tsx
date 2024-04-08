@@ -28,7 +28,7 @@ const HoverDesc = (props: Props) => {
         return (
             <div
                 // attach div to mousePos
-                className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800"
+                className="rounded-xl absolute z-10 w-1/4 p-5 bg-stone-200 opacity-80 text-slate-800 text-sm font-sans outline outline-stone-300 outline-1"
                 style={{
                     left: `${mousePos.x + 10}px`,
                     top: `${mousePos.y + 10}px`,
