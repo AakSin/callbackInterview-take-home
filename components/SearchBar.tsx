@@ -11,7 +11,7 @@ const SearchBar = () => {
     // get initial value from current address
     const [address, setAddress] = useState(params.address);
     return (
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex justify-center items-center">
             <input
                 className="rounded-full w-9/12 h-10 p-4 text-stone-950"
                 type="text"

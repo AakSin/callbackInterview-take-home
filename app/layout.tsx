@@ -18,9 +18,9 @@ export default function RootLayout({
                         alt="Callback Logo"
                         height={0}
                         width={0}
-                        className="w-1/6 py-4"
+                        className="w-36 py-4 pr-2"
                     />
-                    <h1 className="text-8xl h-fit">Callback</h1>
+                    <h1 className="text-8xl h-fit">CALLBACK</h1>
                 </header>
 
                 <SearchBar />
